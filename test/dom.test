@@ -1,0 +1,14 @@
+UTest({
+	
+	'include': function(done){
+
+		include
+			.load('./foo.css')
+			.done(function(resp){
+
+				has_(resp.load.foo, '-webkit-');
+				done();
+			});
+	}
+
+});

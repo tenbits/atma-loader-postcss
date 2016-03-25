@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "atma": "latest",
+    "atma-loader-postcss": "latest",
+    "autoprefixer": "^6.3.4"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/atma test --config config.js"
+  },
+  "atma": {
+    "plugins": [
+      "atma-loader-postcss"
+    ],
+    "settings": {
+      "atma-loader-postcss": {
+        "plugins": [
+          "autoprefixer"
+        ]
+      }
+    }
+  }
+}

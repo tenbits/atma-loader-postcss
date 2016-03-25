@@ -1,0 +1,34 @@
+var FILE = './foo.css',
+	FILE_ERRORED_BUILDER = './foo-errored-builder.css',
+	FILE_ERRORED_PARSER = './foo-errored-parser.css'
+	;
+	
+UTest({
+	
+	'include': function(done){
+
+		include
+			.load(FILE)
+			.done(function(resp){
+
+				has_(resp.load.foo, 'webkit');
+				done();
+			});
+	},
+	
+	'io.File.read': function(){
+		
+		var content = io.File.read(FILE);
+		has_(content, '-webkit-');
+	},
+	'!io.File.readAsync': function(){		
+		return io.File.readAsync(FILE).done(function(content){
+			has_(content, '-webkit-');
+		})
+	},
+	
+	'parser error': function(){
+		var content = io.File.read(FILE_ERRORED_PARSER);
+		has_(content, 'CssSyntaxError');
+	}
+});
