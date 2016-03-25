@@ -1,6 +1,6 @@
 {
   "name": "atma-loader-postcss",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "PostCSS compiler for `atma-io`, `IncludeJS` and `atma-server`.",
   "author": "Alexander Kit (alex.kit@atmajs.com)",
   "main": "index.js",
