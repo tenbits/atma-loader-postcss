@@ -12,7 +12,7 @@ var _src_compiler;
 	"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var atma_utils_1 = require("atma-utils");
-var postCss = require("postcss");
+var postCss;
 function processFn(source, file, compiler) {
     try {
         var opts = prepair(file.uri, compiler);
@@ -59,6 +59,9 @@ function prepair(uri, compiler) {
         base = atma_utils_1.class_Uri.combine(process.cwd(), base);
     }
     paths.push(new atma_utils_1.class_Uri(base).toLocalDir());
+    if (postCss == null) {
+        postCss = require('postcss');
+    }
     return {
         plugins: plugins,
         processor: postCss(plugins),
